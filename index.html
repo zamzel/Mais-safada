@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta de Múltipla Escolha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #container {
+            max-width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .opcao {
+            display: block;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h2>Pergunta:</h2>
+        <p>Quem é a mais safada?</p>
+        
+        <label class="opcao">
+            <input type="radio" name="resposta" value="KEKE"> KEKE
+        </label>
+        <label class="opcao">
+            <input type="radio" name="resposta" value="Ana Paula"> Ana Paula
+        </label>
+        
+        <button onclick="verificarResposta()">Responder</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function verificarResposta() {
+            let respostaSelecionada = document.querySelector('input[name="resposta"]:checked');
+            let resultado = document.getElementById("resultado");
+
+            if (!respostaSelecionada) {
+                resultado.innerHTML = "Por favor, selecione uma opção.";
+                resultado.style.color = "orange";
+                return;
+            }
+
+            if (respostaSelecionada.value === "KEKE") {
+                resultado.innerHTML = "Correto, Ela e a mais safadinha! 🎉";
+                resultado.style.color = "green";
+            } else {
+                resultado.innerHTML = "Errado, KEKE e a mais safadinha! ❌";
+                resultado.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
